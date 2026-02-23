@@ -8,10 +8,10 @@ const OtherUsers = () => {
   useGetOtherUsers();
 
   const { otherUsers } = useSelector((store) => store.user);
-  if (!otherUsers) return; //early return in react
+  if (!Array.isArray(otherUsers) || otherUsers.length === 0) return;
   return (
     <div className="overflow-auto flex-1">
-      {otherUsers?.map((user) => {
+      {otherUsers.map((user) => {
         return <Otheruser user={user} key={user._id} />;
       })}
     </div>

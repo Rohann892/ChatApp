@@ -29,6 +29,8 @@ const Login = () => {
         toast.success(res.data.message || "Signup successful!");
         setTimeout(() => navigate("/"), 1500);
         dispatch(setAuthUser(res.data));
+        console.log(res);
+        console.log(res.data._id);
       }
     } catch (error) {
       console.log("Error:", error);

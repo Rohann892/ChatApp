@@ -6,11 +6,19 @@ import userRoute from './routes/userRoute.js';
 import messageRoute from './routes/messageRoute.js'
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
+import { initSocket } from "./socket/socket.js";
+import http from 'http'
+
 dotenv.config({});
 
 const app = express();
 
 const PORT = process.env.PORT || 8080;
+
+const server = http.createServer(app);
+
+initSocket(server);
+
 
 // middlewares
 app.use(express.urlencoded({ extended: true }))
@@ -28,7 +36,7 @@ app.use(cors(corsOption))
 app.use('/api/v1/user', userRoute)
 app.use('/api/v1/message', messageRoute)
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
     connectDB();
     console.log(`Server Started at PORT: ${PORT}`)
 })

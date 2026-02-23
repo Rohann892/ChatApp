@@ -26,7 +26,6 @@ const Signup = () => {
           withCredentials: true,
         },
       );
-      console.log("Response:", res.data);
       if (res.status === 201 || res.status === 200) {
         toast.success(res.data.message || "Signup successful!");
         setTimeout(() => navigate("/login"), 1500);
