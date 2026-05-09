@@ -3,6 +3,7 @@ import { IoMdArrowDroprightCircle } from "react-icons/io";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { addMessages } from "../redux/messageSlice";
+import { serverUrl } from "../constants";
 
 const SendInput = () => {
   const [message, setMessage] = useState("");
@@ -13,7 +14,7 @@ const SendInput = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        `http://localhost:8000/api/v1/message/send/${selectedUser._id}`,
+        `${serverUrl}/api/v1/message/send/${selectedUser._id}`,
         { message },
         {
           headers: {
