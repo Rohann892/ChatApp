@@ -7,7 +7,7 @@ import { serverUrl } from "../constants";
 
 const SendInput = () => {
   const [message, setMessage] = useState("");
-  const { selectedUser } = useSelector((store) => store.user);
+  const { selectedUser, authUser } = useSelector((store) => store.user);
   const dispatch = useDispatch();
 
   const onSubmitHandler = async (e) => {

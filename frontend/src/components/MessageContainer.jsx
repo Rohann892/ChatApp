@@ -23,7 +23,9 @@ const MessageContainer = () => {
       {selectedUser ? (
         <div className="md:min-w-[550px] pl-4 flex flex-col h-full relative">
           <div className="flex gap-2 items-center bg-zinc-500 rounded-lg p-2 pl-4">
-            <div className={`avatar ${isOnline ? "avatar-online" : ""}`}>
+            <div
+              className={`avatar ${isOnline ? "avatar-online" : ""} ${isOnline ? "animate-pulse" : ""}`}
+            >
               <div>
                 <img
                   src={selectedUser?.profilePhoto}
